@@ -1,6 +1,8 @@
 // packages required for usage
+const { create } = require('domain');
 const fs = require('fs')
 const inquirer = require('inquirer');
+//const { stringify } = require('querystring');
 
 //This is an Array of Questions for User input
 const questions = [
@@ -92,20 +94,37 @@ inquirer
   },
 ])
 // THEN this information is added to the sections of the README entitled Description, Installation, Usage, Contributing, and Tests.
-.then((data) => { // TODO: Create a function to write README file
-  console.log(data),
-  fs.writeFile(
-    `${data.title}.md`,
-     JSON.stringify(data, null, "   "),
-     (err) => {
-       err ? console.log('An error has occured.') :
-        console.log(`${data.title}.md was created successfuly.`);
-     }
-    )
-}
-);
+ .then((data) => {
+    
+  // TODO: Create a function to write README file
+const CreateFiles = fs.createWriteStream(`${data.title}.md`, {
+      //flags: 'a' //flags: 'a' preserved old data
+      })
+      let writeLine = (line) => CreateFiles.write(`\n${line}`);
+writeLine(`# ${data.title}`)
+writeLine(`description: <br>`)
+writeLine(`${data.Description}`)
+
+})
+    //  (err) => {
+    //    err ? console.log('An error has occured.') :
+    //     console.log(`${data.title}.md was created successfuly.`);
+    //  }
+ 
+//     CreateFiles.write(`# ${data.title} `), 
+// CreateFiles.write(`<!--break line here--> description:`),
+// CreateFiles.write(`<br> ${data.Description}`)
 
 
+//`# ${data.title}`,
+//`<br> description: <br> ${data.Description} <br> ## Table of Contents <br>  <br> 1. [Installation](${data.Installation}) <br> <br> 2. [Usage](${data.Usage}) <br> <br> 3. [Licensing](${data.Licensing}) <br> 4. [Contributing](${data.Contributing}) <br>`, null, "   "
+// const CreateFiles = fs.createWriteStream('./file.txt', {
+//     flags: 'a' //flags: 'a' preserved old data
+// })
+
+// for(let i = 0; i < 5; i++){
+//   CreateFiles.write(i.toString()+'\r\n') //'\r\n at the end of each value
+// }
 // function writeToFile(fileName, data) { }
 
 // TODO: Create a function to initialize app
