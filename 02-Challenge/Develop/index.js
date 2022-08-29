@@ -3,6 +3,13 @@ const { create } = require('domain');
 const fs = require('fs')
 const inquirer = require('inquirer');
 //const { stringify } = require('querystring');
+const LicensingArray = [
+    'General Public License (GPL)',//0
+    'Drivers License',//1
+    'Food and Safety License',//2
+
+
+]
 
 //This is an Array of Questions for User input
 const questions = [
@@ -13,7 +20,7 @@ const questions = [
    'Usage...', //4
    'Licensing..', //5
    'Contributing...', //6
-   'Tests...', //7
+   ' Testing instructions...', //7
    'github user name (so users can find you on github)...',//8
    'email (so users can contact)...',//9
 
@@ -37,19 +44,12 @@ inquirer
     name: 'Description',
   },
   {
-    // WHEN I click on the links in the Table of Contents
-    // THEN I am taken to the corresponding section of the README
-    // TODO change this to the value of [3 4 5 6 7]
-    type: 'input',
-    message: `${questions[2]}`,
-    name: 'Table_of_Contents',
-  },
-  {
     //Instilation instructions
     type: 'input',
     message: `${questions[3]}`,
     name: 'Installation',
   },
+  
   {
     //terms of usage
     type: 'input',
@@ -57,13 +57,14 @@ inquirer
     name: 'Usage',
   },
   {
+    //TODO!!!
     //licensing badges to pick from
     // WHEN I choose a license for my application from a list of options
     // THEN a badge for that license is added near the top of the README and a notice is added to the section of the README entitled License that explains which license the application is covered under
-    type: 'input',//change to check
-    message: `${questions[5]}`,
+    type: 'checkbox',
+    message: `choose a licensing option`,
     name: 'Licensing',
-    // add a list of licensing badge
+    choices: LicensingArray,
   },
   { 
     //asks maker how to contribute to project
@@ -99,33 +100,57 @@ inquirer
   // TODO: Create a function to write README file
 const CreateFiles = fs.createWriteStream(`${data.title}.md`, {
       //flags: 'a' //flags: 'a' preserved old data
+      
+      }, (err) => {
+        err ? console.log('An error has occured.') :
+         console.log(`${data.title}.md was created successfuly.`);
       })
       let writeLine = (line) => CreateFiles.write(`\n${line}`);
-writeLine(`# ${data.title}`)
+
+//WRITES TILE AND DESCRIPTION
+writeLine(`# **${data.title}**`)
 writeLine(`description: <br>`)
-writeLine(`${data.Description}`)
+writeLine(`${data.Description} <br>`)
+
+//TABLE OF CONTENTS
+writeLine(` ## Table of Contents <br>`)
+writeLine(`1. [Installation](#install) <br>`)
+writeLine(`2. [Usage](#usage) <br>`)
+writeLine(`3. [Licensing](#licensing) <br>`)
+writeLine(`4. [Contributing](#contribute) <br>`)
+writeLine(`5. [Tests](#tests) <br>`)
+writeLine(`5. [Questions](#questions) <br>`)
+
+//WRITES INSTALLATION INSTRUCTIONS
+writeLine(` ## [Installation Instructions]((#install) <br>`)
+writeLine(`${data.Installation} <br>`)
+
+// WRITES USAGE 
+writeLine(` ## [Usage](#usage) <br>`)
+writeLine(` ${data.Usage} <br>`)
+
+//WRITES LICENSING 
+//TODO: ADD LICENSING OPTIONS WITH LOGOS AND DESCRIPTIONS
+writeLine(` ## [Licensing](#licensing) <br>`)
+writeLine(` ${data.Licensing} <br>`)
+
+//WRITES CONTRIBUTING
+writeLine(` ## [Contributing](#contribute) <br>`)
+writeLine(` ${data.Contributing} <br>`)
+
+//WRITES TESTS
+writeLine(` ## [Tests](#tests) <br>`)
+writeLine(` Testing instructions: <br> ${data.Contributing} <br>`)
+
+//WRITES QUESTIONS
+writeLine(` ## [Questions](#questions) <br>`)
+writeLine(`Questions, comments, or smart remarks? <br>`)
+writeLine(`GitHub: [${data.github}](https://github.com/${data.github}) <br>`)
+writeLine(`Email: ${data.email} <br>`)
 
 })
-    //  (err) => {
-    //    err ? console.log('An error has occured.') :
-    //     console.log(`${data.title}.md was created successfuly.`);
-    //  }
- 
-//     CreateFiles.write(`# ${data.title} `), 
-// CreateFiles.write(`<!--break line here--> description:`),
-// CreateFiles.write(`<br> ${data.Description}`)
+    
 
-
-//`# ${data.title}`,
-//`<br> description: <br> ${data.Description} <br> ## Table of Contents <br>  <br> 1. [Installation](${data.Installation}) <br> <br> 2. [Usage](${data.Usage}) <br> <br> 3. [Licensing](${data.Licensing}) <br> 4. [Contributing](${data.Contributing}) <br>`, null, "   "
-// const CreateFiles = fs.createWriteStream('./file.txt', {
-//     flags: 'a' //flags: 'a' preserved old data
-// })
-
-// for(let i = 0; i < 5; i++){
-//   CreateFiles.write(i.toString()+'\r\n') //'\r\n at the end of each value
-// }
-// function writeToFile(fileName, data) { }
 
 // TODO: Create a function to initialize app
 function init() {}
@@ -135,23 +160,8 @@ init();
 
 // GIVEN a command-line application that accepts user input
 
-// WHEN I am prompted for information about my application repository
-// THEN a high-quality, professional README.md is generated with the title of my project and sections entitled Description, Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions
+// TODO WHEN I choose a license for my application from a list of options
+// TODO THEN a badge for that license is added near the top of the README and a notice is added to the section of the README entitled License that explains which license the application is covered under
 
-// WHEN I enter my project title
-// THEN this is displayed as the title of the README
-
-// WHEN I enter a description, installation instructions, usage information, contribution guidelines, and test instructions
-// THEN this information is added to the sections of the README entitled Description, Installation, Usage, Contributing, and Tests
-
-// WHEN I choose a license for my application from a list of options
-// THEN a badge for that license is added near the top of the README and a notice is added to the section of the README entitled License that explains which license the application is covered under
-
-// WHEN I enter my GitHub username
-// THEN this is added to the section of the README entitled Questions, with a link to my GitHub profile
-
-// WHEN I enter my email address
-// THEN this is added to the section of the README entitled Questions, with instructions on how to reach me with additional questions
-
-// WHEN I click on the links in the Table of Contents
-// THEN I am taken to the corresponding section of the README
+// TODO WHEN I click on the links in the Table of Contents
+// TODO THEN I am taken to the corresponding section of the README
