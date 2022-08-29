@@ -2,6 +2,8 @@
 const { create } = require('domain');
 const fs = require('fs')
 const inquirer = require('inquirer');
+const markdown = require('./utils/generateMarkdown')
+const path = require('path')
 //const { stringify } = require('querystring');
 const LicensingArray = [
     'General Public License (GPL)',//0
@@ -96,57 +98,57 @@ inquirer
 ])
 // THEN this information is added to the sections of the README entitled Description, Installation, Usage, Contributing, and Tests.
  .then((data) => {
-    
-  // TODO: Create a function to write README file
-const CreateFiles = fs.createWriteStream(`${data.title}.md`, {
-      //flags: 'a' //flags: 'a' preserved old data
+    fs.writeFileSync(path.join(process.cwd(), 'readme.md'),markdown(data))
+//   // TODO: Create a function to write README file
+// const CreateFiles = fs.createWriteStream(`${data.title}.md`, {
+//       //flags: 'a' //flags: 'a' preserved old data
       
-      }, (err) => {
-        err ? console.log('An error has occured.') :
-         console.log(`${data.title}.md was created successfuly.`);
-      })
-      let writeLine = (line) => CreateFiles.write(`\n${line}`);
+//       }, (err) => {
+//         err ? console.log('An error has occured.') :
+//          console.log(`${data.title}.md was created successfuly.`);
+//       })
+//       let writeLine = (line) => CreateFiles.write(`\n${line}`);
 
-//WRITES TILE AND DESCRIPTION
-writeLine(`# **${data.title}**`)
-writeLine(`description: <br>`)
-writeLine(`${data.Description} <br>`)
+// //WRITES TILE AND DESCRIPTION
+// `# **${data.title}**`)
+// `description:`)
+// `${data.Description}`)
 
-//TABLE OF CONTENTS
-writeLine(` ## Table of Contents <br>`)
-writeLine(`1. [Installation](#install) <br>`)
-writeLine(`2. [Usage](#usage) <br>`)
-writeLine(`3. [Licensing](#licensing) <br>`)
-writeLine(`4. [Contributing](#contribute) <br>`)
-writeLine(`5. [Tests](#tests) <br>`)
-writeLine(`5. [Questions](#questions) <br>`)
+// //TABLE OF CONTENTS
+// ` ## Table of Contents`)
+// `1. [Installation](#install)`)
+// `2. [Usage](#usage)`)
+// `3. [Licensing](#licensing)`)
+// `4. [Contributing](#contribute)`)
+// `5. [Tests](#tests)`)
+// `5. [Questions](#questions)`)
 
-//WRITES INSTALLATION INSTRUCTIONS
-writeLine(` ## [Installation Instructions]((#install) <br>`)
-writeLine(`${data.Installation} <br>`)
+// //WRITES INSTALLATION INSTRUCTIONS
+// ` ## [Installation Instructions]((#install)`)
+// `${data.Installation}`)
 
-// WRITES USAGE 
-writeLine(` ## [Usage](#usage) <br>`)
-writeLine(` ${data.Usage} <br>`)
+// // WRITES USAGE 
+// ` ## [Usage](#usage)`)
+// ` ${data.Usage}`)
 
-//WRITES LICENSING 
-//TODO: ADD LICENSING OPTIONS WITH LOGOS AND DESCRIPTIONS
-writeLine(` ## [Licensing](#licensing) <br>`)
-writeLine(` ${data.Licensing} <br>`)
+// //WRITES LICENSING 
+// //TODO: ADD LICENSING OPTIONS WITH LOGOS AND DESCRIPTIONS
+// ` ## [Licensing](#licensing)`)
+// ` ${data.Licensing}`)
 
-//WRITES CONTRIBUTING
-writeLine(` ## [Contributing](#contribute) <br>`)
-writeLine(` ${data.Contributing} <br>`)
+// //WRITES CONTRIBUTING
+// ` ## [Contributing](#contribute)`)
+// ` ${data.Contributing}`)
 
-//WRITES TESTS
-writeLine(` ## [Tests](#tests) <br>`)
-writeLine(` Testing instructions: <br> ${data.Contributing} <br>`)
+// //WRITES TESTS
+// ` ## [Tests](#tests)`)
+// ` Testing instructions: ${data.Tests}`)
 
-//WRITES QUESTIONS
-writeLine(` ## [Questions](#questions) <br>`)
-writeLine(`Questions, comments, or smart remarks? <br>`)
-writeLine(`GitHub: [${data.github}](https://github.com/${data.github}) <br>`)
-writeLine(`Email: ${data.email} <br>`)
+// //WRITES QUESTIONS
+// ` ## [Questions](#questions)`)
+// `Questions, comments, or smart remarks? Get in touch at my GitHub or Email`)
+// `GitHub: [${data.github}](https://github.com/${data.github})`)
+// `Email: ${data.email}`)
 
 })
     
