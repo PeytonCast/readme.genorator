@@ -20,10 +20,10 @@ console.log(LicensingArray)
 const questions = [
    'Title of project.',//0
    'Description of project.', //1
-   'Add Table of Contents.',//2
+   'Add Table of Contents.',//2 ignored
    'Installation Instructions.',//3
    'Information about usage.', //4
-   'Licensing.', //5 nullified
+   'Licensing.', //5 ignored
    'How can users contribute to your project?', //6
    'Please add testing instructions.', //7
    'Add your GitHub user name (so users can find you on github).',//8
