@@ -1,21 +1,54 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
-function renderLicenseBadge(license) {}
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-function renderLicenseLink(license) {}
-
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) {}
-
-// TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
+  // makes a readme with no mention of licensing if "none" was selected.
+  if (data.Licensing == "none") {
+    return `
+  <!--TILE AND DESCRIPTION-->
+  # **${data.title}** 
+  
+  Description: <br>
+  ${data.Description}
+ 
+  <!--TABLE OF CONTENTS-->
+   ## Table of Contents
+  1. [Installation](#install)
+  2. [Usage](#usage)
+  3. [Contributing](#contribute)
+  4. [Tests](#tests)
+  5. [Questions](#questions)
+ 
+  <!--INSTALLATION INSTRUCTIONS-->
+   ### [Installation Instructions](install)
+  ${data.Installation}
+ 
+  <!--USAGE--> 
+   ### [Usage](usage)
+   ${data.Usage}
+ 
+   
+   <!--CONTRIBUTING-->
+   ### [Contributing](contribute)
+   ${data.Contributing}
+ 
+   <!--TESTS-->
+   ### [Tests](tests)
+   Testing instructions: ${data.Tests}
+ 
+   <!--QUESTIONS-->
+   ### [Questions](questions)
+  Questions, comments, or smart remarks? Get in touch at my GitHub or Email. <br>
+  GitHub: [${data.github}](https:github.com/${data.github}) <br>
+  Email: ${data.email}
+       
+  ###### This Readme was made by readme.genorator built by Peyton Castillo [Visit Repo](https://github.com/PeytonCast/readme.genorator)
+`
+  } // makes a readme with licensing if something other than "none" was selected.
+  else {
   return `
-  <!--WRITES TILE AND DESCRIPTION-->
-  # **${data.title}**
-  description:
+  <!--TILE AND DESCRIPTION-->
+  # **${data.title}** 
+  ![GitHub license](https://img.shields.io/badge/licensed_under-${data.Licensing}-blue.svg) <br>
+  Description: <br>
   ${data.Description}
  
   <!--TABLE OF CONTENTS-->
@@ -27,39 +60,37 @@ function generateMarkdown(data) {
   5. [Tests](#tests)
   5. [Questions](#questions)
  
-  <!--WRITES INSTALLATION INSTRUCTIONS-->
-   ## [Installation Instructions]((#install)
+  <!--INSTALLATION INSTRUCTIONS-->
+   ### [Installation Instructions](install)
   ${data.Installation}
  
-  <!--WRITES USAGE--> 
-   ## [Usage](#usage)
+  <!--USAGE--> 
+   ### [Usage](usage)
    ${data.Usage}
  
-   <!--WRITES LICENSING--> 
-  TODO: ADD LICENSING OPTIONS WITH LOGOS AND DESCRIPTIONS
-   ## [Licensing](#licensing)
-   ${data.Licensing}
+   <!--LICENSING--> 
+  
+   ### [Licensing](licensing)
+   Notice: This application is covered under ${data.Licensing} licensing. <br>
+   For more information we recomend [Inforation on ${data.Licensing}](https://www.google.com/search?q=${data.Licensing}+licensing+information)
  
-   <!--WRITES CONTRIBUTING-->
-   ## [Contributing](#contribute)
+   <!--CONTRIBUTING-->
+   ### [Contributing](contribute)
    ${data.Contributing}
  
-   <!--WRITES TESTS-->
-   ## [Tests](#tests)
-   Testing instructions: ${data.Tests}
+   <!--TESTS-->
+   ### [Testing Instructions](tests)
+  ${data.Tests}
  
-   <!--WRITES QUESTIONS-->
-   ## [Questions](#questions)
-  Questions, comments, or smart remarks? Get in touch at my GitHub or Email)
-  GitHub: [${data.github}](https:github.com/${data.github})
+   <!--QUESTIONS-->
+   ### [Questions](questions)
+  Questions, comments, or smart remarks? Get in touch at my GitHub or Email. <br>
+  GitHub: [${data.github}](https:github.com/${data.github}) <br>
   Email: ${data.email}
         
-`;
+  ###### This Readme was made by readme.genorator built by Peyton Castillo [Visit Repo](https://github.com/PeytonCast/readme.genorator)`;}
 }
 
 module.exports = generateMarkdown;
-// MIT
-// apache 2.0
-// bsd3
-// gpl 3.0
-//none
+
+
