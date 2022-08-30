@@ -1,5 +1,23 @@
 
 function generateMarkdown(data) {
+  //checks for empty user input
+  try {
+    if (data.title == "") throw "Title is empty"
+    if (data.Description == "") throw "Description is empty"
+    if (data.Installation == "") throw "Install instructions is empty"
+    if (data.Usage == "") throw "Usage is empty"
+    if (data.Contributing == "") throw "Contributing is empty"
+    if (data.Tests == "") throw " Test Instructions is empty"
+    if (data.github == "") throw "GitHub is empty"
+    if (data.Licensing == "") throw "Licensing is empty"
+    else {console.log('Readme made successfuly')}
+
+  }
+  catch(err) {
+    console.log( 'Error: You must fill out all prompts.' + err)
+    return ``
+  }
+  
   // makes a readme with no mention of licensing if "none" was selected.
   if (data.Licensing == "none") {
     return `
