@@ -38,11 +38,11 @@ function generateMarkdown(data) {
    <!--WRITES LICENSING--> 
   TODO: ADD LICENSING OPTIONS WITH LOGOS AND DESCRIPTIONS
    ## [Licensing](#licensing)
-   ${data.Licensing})
+   ${data.Licensing}
  
    <!--WRITES CONTRIBUTING-->
    ## [Contributing](#contribute)
-   ${data.Contributing})
+   ${data.Contributing}
  
    <!--WRITES TESTS-->
    ## [Tests](#tests)
