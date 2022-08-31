@@ -17,7 +17,7 @@
    ### [Installation Instructions](install)
   To install clone this repo to your computer then open in vs code. 
   Once there make sure node.js is installed. Next, open the vs code terminal and run "npm i" and that will install inquirer.
-  ![image of install](https://user-images.githubusercontent.com/107663364/187719902-e5a4d0c5-1feb-4760-9248-95347d4f3aaa.png)
+  ![image of install](https://user-images.githubusercontent.com/107663364/187719902-e5a4d0c5-1feb-4760-9248-95347d4f3aaa.png) <br>
    [badly done demo video](https://drive.google.com/file/d/1LLUWJgiJweNADutuBQIwRxnYcTI9Ey-d/view)
   <!--USAGE--> 
   ### [Usage](usage)
