@@ -49,8 +49,8 @@ function generateMarkdown(data) {
    ${data.Contributing}
  
    <!--TESTS-->
-   ### [Tests](tests)
-   Testing instructions: ${data.Tests}
+   ### [Testing Instructions](tests)
+    ${data.Tests}
  
    <!--QUESTIONS-->
    ### [Questions](questions)

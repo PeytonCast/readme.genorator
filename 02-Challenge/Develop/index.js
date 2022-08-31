@@ -15,7 +15,6 @@ const LicensingArray =
     ]
 
 
-console.log(LicensingArray)
 //This is an Array of Questions for User input
 const questions = [
    'Title of project.',//0
