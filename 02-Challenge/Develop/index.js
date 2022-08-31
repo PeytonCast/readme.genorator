@@ -29,76 +29,75 @@ const questions = [
    'Add your email (so users can contact).',//9
 
 ];
-inquirer
-.prompt([
-  {
-    
-    //this will be the tile of the readme
-    type: 'input',
-    message: `${questions[0]}`,
-    name: 'title',
-  },
-  {
-    //discription of the readme
-    type: 'input',
-    message: `${questions[1]}`,
-    name: 'Description',
-  },
-  {
-    //Instilation instructions
-    type: 'input',
-    message: `${questions[3]}`,
-    name: 'Installation',
-  },
-  
-  {
-    //terms of usage
-    type: 'input',
-    message: `${questions[4]}`,
-    name: 'Usage',
-  },
-  {
-    
-    type: 'checkbox',
-    message: `Choose  a licensing option (only one)`,
-    name: 'Licensing',
-    choices: LicensingArray,
-  },
-  { 
-    //asks maker how to contribute to project
-    type: 'input',
-    message: `${questions[6]}`,
-    name: 'Contributing',
-  },
-  { 
-   //asks maker how to test project
-    type: 'input',
-    message: `${questions[7]}`,
-    name: 'Tests',
-  },
-  { //github user name
-    type: 'input',
-    message: `${questions[8]}`,
-    name: 'github',
-    
 
-  },
-  { //email
-    type: 'input',
-    message: `${questions[9]}`,
-    name: 'email',
     
-  },
-])
-// THEN this information is added to the sections of the README entitled Description, Installation, Usage, Contributing, and Tests.
- .then((data) => {
-    fs.writeFileSync(path.join(process.cwd(), `${data.title}.md`),markdown(data))
-})
-    
-
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {inquirer
+  .prompt([
+    {
+      
+      //this will be the tile of the readme
+      type: 'input',
+      message: `${questions[0]}`,
+      name: 'title',
+    },
+    {
+      //discription of the readme
+      type: 'input',
+      message: `${questions[1]}`,
+      name: 'Description',
+    },
+    {
+      //Instilation instructions
+      type: 'input',
+      message: `${questions[3]}`,
+      name: 'Installation',
+    },
+    
+    {
+      //terms of usage
+      type: 'input',
+      message: `${questions[4]}`,
+      name: 'Usage',
+    },
+    {
+      
+      type: 'checkbox',
+      message: `Choose  a licensing option (only one)`,
+      name: 'Licensing',
+      choices: LicensingArray,
+    },
+    { 
+      //asks maker how to contribute to project
+      type: 'input',
+      message: `${questions[6]}`,
+      name: 'Contributing',
+    },
+    { 
+     //asks maker how to test project
+      type: 'input',
+      message: `${questions[7]}`,
+      name: 'Tests',
+    },
+    { //github user name
+      type: 'input',
+      message: `${questions[8]}`,
+      name: 'github',
+      
+  
+    },
+    { //email
+      type: 'input',
+      message: `${questions[9]}`,
+      name: 'email',
+      
+    },
+  ])
+  // THEN this information is added to the sections of the README entitled Description, Installation, Usage, Contributing, and Tests.
+   .then((data) => {
+      fs.writeFileSync(path.join(process.cwd(), `${data.title}.md`),markdown(data))
+  })}
 
 // Function call to initialize app
 init();
