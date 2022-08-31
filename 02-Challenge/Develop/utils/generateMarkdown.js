@@ -79,29 +79,29 @@ function generateMarkdown(data) {
   5. [Questions](#questions)
  
   <!--INSTALLATION INSTRUCTIONS-->
-   ### [Installation Instructions](install)
+  ### [Installation Instructions](install)
   ${data.Installation}
  
   <!--USAGE--> 
-   ### [Usage](usage)
+  ### [Usage](usage)
    ${data.Usage}
  
    <!--LICENSING--> 
   
-   ### [Licensing](licensing)
+  ### [Licensing](licensing)
    Notice: This application is covered under ${data.Licensing} licensing. <br>
    For more information we recomend [Inforation on ${data.Licensing}](https://www.google.com/search?q=${data.Licensing}+licensing+information)
  
-   <!--CONTRIBUTING-->
-   ### [Contributing](contribute)
+  <!--CONTRIBUTING-->
+  ### [Contributing](contribute)
    ${data.Contributing}
  
    <!--TESTS-->
-   ### [Testing Instructions](tests)
+  ### [Testing Instructions](tests)
   ${data.Tests}
  
    <!--QUESTIONS-->
-   ### [Questions](questions)
+  ### [Questions](questions)
   Questions, comments, or smart remarks? Get in touch at my GitHub or Email. <br>
   GitHub: [${data.github}](https:github.com/${data.github}) <br>
   Email: ${data.email}
