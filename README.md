@@ -1,6 +1,6 @@
 
   <!--TILE AND DESCRIPTION-->
-  # **readme.genorator** 
+  # **readme.generator** 
   
   Description: <br>
   This is a readme generator you simply fill out the prompts and the readme will generate into the folder it features a description, a table of contents, installation instructions, usage information, contributing info, testing info, and a questions section.
@@ -41,4 +41,4 @@
   ![image of application](https://user-images.githubusercontent.com/107663364/187719205-f5daf400-024a-48f6-9b65-ba24f3dfe7c4.png)
 
      
-  ###### This Readme was made by readme.genorator built by Peyton Castillo [Visit GitHub Repo](https://github.com/PeytonCast/readme.genorator)
+  ###### This Readme was made by readme.generator built by Peyton Castillo [Visit GitHub Repo](https://github.com/PeytonCast/readme.genorator)
