@@ -63,7 +63,7 @@ function init() {inquirer
     },
     {
       
-      type: 'checkbox',
+      type: 'list',
       message: `Choose  a licensing option (only one)`,
       name: 'Licensing',
       choices: LicensingArray,
