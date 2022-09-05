@@ -1,6 +1,6 @@
 
   <!--TILE AND DESCRIPTION-->
-  # **This is a Title** 
+  # **Example-Readme-Title** 
   ![GitHub license](https://img.shields.io/badge/licensed_under-BSD_3-blue.svg) <br>
   Description: <br>
   This is an example of a good decription! 
@@ -20,17 +20,17 @@
  
   <!--USAGE--> 
   ### [Usage](usage)
-   This is the info about usage.
+  This is the info about usage.
  
    <!--LICENSING--> 
   
   ### [Licensing](licensing)
-   Notice: This application is covered under BSD_3 licensing. <br>
-   For more information we recomend [Inforation on BSD_3](https://www.google.com/search?q=BSD_3+licensing+information)
+  Notice: This application is covered under BSD_3 licensing. <br>
+  For more information we recomend [Inforation on BSD_3](https://www.google.com/search?q=BSD_3+licensing+information)
  
   <!--CONTRIBUTING-->
   ### [Contributing](contribute)
-   Contribute using github
+  Contribute using github
  
    <!--TESTS-->
   ### [Testing Instructions](tests)
